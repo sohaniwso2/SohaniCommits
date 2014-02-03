@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/developerstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_cyoPwIzBEeOff-WGb_rMwQ" type="Esb" name="endpoint_SendConfirmaiton.esb_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_czbhAIzBEeOff-WGb_rMwQ" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_czcIEIzBEeOff-WGb_rMwQ" type="7001"/>
+    <children xmi:type="notation:Shape" xmi:id="_la-loIzBEeOff-WGb_rMwQ" type="3642" fontName="Ubuntu">
+      <children xmi:type="notation:BasicCompartment" xmi:id="_la-loozBEeOff-WGb_rMwQ" type="7041">
+        <children xmi:type="notation:Node" xmi:id="_lbBB4IzBEeOff-WGb_rMwQ" type="3646">
+          <children xmi:type="notation:DecorationNode" xmi:id="_lbBo8IzBEeOff-WGb_rMwQ" type="5161"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_lbBB4YzBEeOff-WGb_rMwQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_lbBB4ozBEeOff-WGb_rMwQ" fontName="Ubuntu"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_lbBB44zBEeOff-WGb_rMwQ"/>
+          <element xmi:type="esb:AddressEndPoint" href="endpoint_SendConfirmaiton.esb#//@server/@children.0/@child"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_lbBB5IzBEeOff-WGb_rMwQ" width="75" height="75"/>
+        </children>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_la-lo4zBEeOff-WGb_rMwQ" showTitle="true"/>
+      </children>
+      <element xmi:type="esb:EndpointDiagram" href="endpoint_SendConfirmaiton.esb#//@server/@children.0"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_la-loYzBEeOff-WGb_rMwQ" width="110" height="100"/>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_czbhAYzBEeOff-WGb_rMwQ"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_czbhAozBEeOff-WGb_rMwQ" fontName="Ubuntu"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_czbhA4zBEeOff-WGb_rMwQ"/>
+    <element xmi:type="esb:EsbServer" href="endpoint_SendConfirmaiton.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_czbhBIzBEeOff-WGb_rMwQ"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_cyoPwYzBEeOff-WGb_rMwQ"/>
+  <element xmi:type="esb:EsbDiagram" href="endpoint_SendConfirmaiton.esb#/"/>
+</notation:Diagram>

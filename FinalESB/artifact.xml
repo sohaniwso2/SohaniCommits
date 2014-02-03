@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="Check" groupId="com.example.FinalESB.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/Check.xml</file>
+    </artifact>
+    <artifact name="UserAPI" groupId="com.example.FinalESB.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/UserAPI.xml</file>
+    </artifact>
+    <artifact name="UserGetInSequence" groupId="com.example.FinalESB.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/UserGetInSequence.xml</file>
+    </artifact>
+    <artifact name="UserGetOutSequence" groupId="com.example.FinalESB.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/UserGetOutSequence.xml</file>
+    </artifact>
+    <artifact name="UserAddInSequence" groupId="com.example.FinalESB.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/UserAddInSequence.xml</file>
+    </artifact>
+    <artifact name="testJSON" groupId="com.example.FinalESB.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/testJSON.xml</file>
+    </artifact>
+    <artifact name="testAPI" groupId="com.example.FinalESB.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/testAPI.xml</file>
+    </artifact>
+    <artifact name="testXML" groupId="com.example.FinalESB.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/testXML.xml</file>
+    </artifact>
+    <artifact name="MakeRequest" groupId="com.example.FinalESB.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/MakeRequest.xml</file>
+    </artifact>
+    <artifact name="SendRequest" groupId="com.example.FinalESB.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/SendRequest.xml</file>
+    </artifact>
+    <artifact name="SendConfirmation" groupId="com.example.FinalESB.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/SendConfirmation.xml</file>
+    </artifact>
+    <artifact name="SendConfirmaiton" groupId="com.example.FinalESB.endpoint" version="1.0.0" type="synapse/endpoint" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/endpoints/SendConfirmaiton.xml</file>
+    </artifact>
+</artifacts>
