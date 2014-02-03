@@ -2,20 +2,20 @@
 <notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/developerstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_FNZpAItPEeOsZKUOulBG0A" type="Esb" name="endpoint_Check.esb_diagram" measurementUnit="Pixel">
   <children xmi:type="notation:Node" xmi:id="_FQMeUItPEeOsZKUOulBG0A" type="2001">
     <children xmi:type="notation:DecorationNode" xmi:id="_FQMeVYtPEeOsZKUOulBG0A" type="7001"/>
-    <children xmi:type="notation:Shape" xmi:id="_KDJ3AItPEeOsZKUOulBG0A" type="3642" fontName="Ubuntu">
-      <children xmi:type="notation:BasicCompartment" xmi:id="_KDKeEItPEeOsZKUOulBG0A" type="7041">
-        <children xmi:type="notation:Node" xmi:id="_KDOIcItPEeOsZKUOulBG0A" type="3646">
-          <children xmi:type="notation:DecorationNode" xmi:id="_KDOIdYtPEeOsZKUOulBG0A" type="5161"/>
-          <styles xmi:type="notation:DescriptionStyle" xmi:id="_KDOIcYtPEeOsZKUOulBG0A"/>
-          <styles xmi:type="notation:FontStyle" xmi:id="_KDOIcotPEeOsZKUOulBG0A" fontName="Ubuntu"/>
-          <styles xmi:type="notation:LineStyle" xmi:id="_KDOIc4tPEeOsZKUOulBG0A"/>
+    <children xmi:type="notation:Shape" xmi:id="_qHSekIzTEeOff-WGb_rMwQ" type="3642" fontName="Ubuntu">
+      <children xmi:type="notation:BasicCompartment" xmi:id="_qHSekozTEeOff-WGb_rMwQ" type="7041">
+        <children xmi:type="notation:Node" xmi:id="_qHU60IzTEeOff-WGb_rMwQ" type="3646">
+          <children xmi:type="notation:DecorationNode" xmi:id="_qHU61YzTEeOff-WGb_rMwQ" type="5161"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_qHU60YzTEeOff-WGb_rMwQ"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_qHU60ozTEeOff-WGb_rMwQ" fontName="Ubuntu"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_qHU604zTEeOff-WGb_rMwQ"/>
           <element xmi:type="esb:AddressEndPoint" href="endpoint_Check.esb#//@server/@children.0/@child"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KDOIdItPEeOsZKUOulBG0A" width="75" height="75"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qHU61IzTEeOff-WGb_rMwQ" width="75" height="75"/>
         </children>
-        <styles xmi:type="notation:TitleStyle" xmi:id="_KDKeEYtPEeOsZKUOulBG0A" showTitle="true"/>
+        <styles xmi:type="notation:TitleStyle" xmi:id="_qHSek4zTEeOff-WGb_rMwQ" showTitle="true"/>
       </children>
       <element xmi:type="esb:EndpointDiagram" href="endpoint_Check.esb#//@server/@children.0"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KDJ3AYtPEeOsZKUOulBG0A" width="110" height="100"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qHSekYzTEeOff-WGb_rMwQ" width="110" height="100"/>
     </children>
     <styles xmi:type="notation:DescriptionStyle" xmi:id="_FQMeUYtPEeOsZKUOulBG0A"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_FQMeUotPEeOsZKUOulBG0A" fontName="Ubuntu"/>

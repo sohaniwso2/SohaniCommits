@@ -16,7 +16,7 @@
             <propertyExpression prettyName="property expression" propertyName="expression" propertyValue="/default/expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
           </properties>
         </children>
-        <children xsi:type="esb:PropertyMediator" propertyName="messageType" propertyScope="axis2" valueLiteral="text/xml">
+        <children xsi:type="esb:PropertyMediator" propertyName="messageType" propertyScope="axis2" valueLiteral="application/json">
           <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
           <outputConnector>
             <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.2/@inputConnector"/>
@@ -104,35 +104,74 @@
             </children>
             <children xsi:type="esb:PropertyMediator" propertyName="NoOfSeats" valueType="EXPRESSION">
               <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.8/@mediatorFlow/@children.2/@outputConnector/@outgoingLink"/>
-              <outputConnector>
-                <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.8/@mediatorFlow/@children.4/@inputConnector"/>
-              </outputConnector>
-              <valueExpression propertyValue="//noOfSeats/text()" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400016D740029687474703A2F2F736368656D61732E786D6C736F61702E6F72672F736F61702F656E76656C6F70652F78"/>
-            </children>
-            <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=", ">
-              <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.8/@mediatorFlow/@children.3/@outputConnector/@outgoingLink"/>
               <outputConnector/>
-              <properties propertyName="CustomerID" propertyValueType="EXPRESSION">
-                <propertyExpression propertyValue="$ctx:CustomerID" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400016D740029687474703A2F2F736368656D61732E786D6C736F61702E6F72672F736F61702F656E76656C6F70652F78"/>
-              </properties>
-              <properties propertyName="RequestID" propertyValueType="EXPRESSION">
-                <propertyExpression propertyValue="$ctx:RequestID" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400016D740029687474703A2F2F736368656D61732E786D6C736F61702E6F72672F736F61702F656E76656C6F70652F78"/>
-              </properties>
-              <properties propertyName="MovieName" propertyValueType="EXPRESSION">
-                <propertyExpression propertyValue="$ctx:MovieName" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400016D740029687474703A2F2F736368656D61732E786D6C736F61702E6F72672F736F61702F656E76656C6F70652F78"/>
-              </properties>
-              <properties propertyName="NoOfSeats" propertyValueType="EXPRESSION">
-                <propertyExpression propertyValue="$ctx:NoOfSeats" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400016D740029687474703A2F2F736368656D61732E786D6C736F61702E6F72672F736F61702F656E76656C6F70652F78"/>
-              </properties>
+              <valueExpression propertyValue="//noOfSeats/text()" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400016D740029687474703A2F2F736368656D61732E786D6C736F61702E6F72672F736F61702F656E76656C6F70652F78"/>
             </children>
           </mediatorFlow>
           <sequenceKey prettyName="Sequence Reference" keyName="key" keyValue="/default/key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
         </children>
-        <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=", ">
+        <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=",">
           <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.8/@outputConnector/@outgoingLink"/>
           <outputConnector>
             <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.10/@inputConnector"/>
           </outputConnector>
+          <properties propertyName="MessageFlow" propertyValue="======================= Before Sending User Request to RequestService : =======================">
+            <propertyExpression prettyName="property expression" propertyName="expression" propertyValue="/default/expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
+          </properties>
+        </children>
+        <children xsi:type="esb:EnrichMediator" cloneSource="true" sourceType="inline" sourceXML="&lt;p:setCustomerRequest xmlns:p=&quot;http://Axis.com&quot;>&#xA;                &lt;xs:customerID xmlns:xs=&quot;http://Axis.com&quot;>x&lt;/xs:customerID>&#xA;                &lt;xs:requestID xmlns:xs=&quot;http://Axis.com&quot;>y&lt;/xs:requestID>&#xA;                &lt;xs:movieName xmlns:xs=&quot;http://Axis.com&quot;>z&lt;/xs:movieName>&#xA;                &lt;xs:noOfSeats xmlns:xs=&quot;http://Axis.com&quot;>0&lt;/xs:noOfSeats>&#xA;            &lt;/p:setCustomerRequest>" targetType="body">
+          <sourceXpath prettyName="Source XPath" propertyName="xpath" propertyValue="/default/xpath" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
+          <targetXpath prettyName="Target XPath" propertyName="xpath" propertyValue="/default/xpath" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
+          <inlineRegistryKey prettyName="InlineKey" keyName="key" keyValue="/default/sequence" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400196F72672E77736F322E636172626F6E2E6D6564696174797065737200136A6176612E7574696C2E41727261794C6973747881D21D99C7619D03000149000473697A6578700000000177040000000A74001D6170706C69636174696F6E2F766E642E77736F322E73657175656E63657878"/>
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.9/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.11/@inputConnector"/>
+          </outputConnector>
+        </children>
+        <children xsi:type="esb:EnrichMediator" cloneSource="true" sourceType="property" sourceProperty="CustomerID">
+          <sourceXpath prettyName="Source XPath" propertyName="xpath" propertyValue="/default/xpath" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
+          <targetXpath propertyValue="//p:setCustomerRequest/p:customerID/text()" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400017074000F687474703A2F2F417869732E636F6D78"/>
+          <inlineRegistryKey prettyName="InlineKey" keyName="key" keyValue="/default/sequence" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400196F72672E77736F322E636172626F6E2E6D6564696174797065737200136A6176612E7574696C2E41727261794C6973747881D21D99C7619D03000149000473697A6578700000000177040000000A74001D6170706C69636174696F6E2F766E642E77736F322E73657175656E63657878"/>
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.10/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.12/@inputConnector"/>
+          </outputConnector>
+        </children>
+        <children xsi:type="esb:EnrichMediator" cloneSource="true" sourceType="property" sourceProperty="RequestID">
+          <sourceXpath prettyName="Source XPath" propertyName="xpath" propertyValue="/default/xpath" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
+          <targetXpath propertyValue="//p:setCustomerRequest/p:requestID/text()" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400017074000F687474703A2F2F417869732E636F6D78"/>
+          <inlineRegistryKey prettyName="InlineKey" keyName="key" keyValue="/default/sequence" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400196F72672E77736F322E636172626F6E2E6D6564696174797065737200136A6176612E7574696C2E41727261794C6973747881D21D99C7619D03000149000473697A6578700000000177040000000A74001D6170706C69636174696F6E2F766E642E77736F322E73657175656E63657878"/>
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.11/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.13/@inputConnector"/>
+          </outputConnector>
+        </children>
+        <children xsi:type="esb:EnrichMediator" cloneSource="true" sourceType="property" sourceProperty="MovieName">
+          <sourceXpath prettyName="Source XPath" propertyName="xpath" propertyValue="/default/xpath" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
+          <targetXpath propertyValue="//p:setCustomerRequest/p:movieName/text()" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400017074000F687474703A2F2F417869732E636F6D78"/>
+          <inlineRegistryKey prettyName="InlineKey" keyName="key" keyValue="/default/sequence" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400196F72672E77736F322E636172626F6E2E6D6564696174797065737200136A6176612E7574696C2E41727261794C6973747881D21D99C7619D03000149000473697A6578700000000177040000000A74001D6170706C69636174696F6E2F766E642E77736F322E73657175656E63657878"/>
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.12/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.14/@inputConnector"/>
+          </outputConnector>
+        </children>
+        <children xsi:type="esb:EnrichMediator" cloneSource="true" sourceType="property" sourceProperty="NoOfSeats">
+          <sourceXpath prettyName="Source XPath" propertyName="xpath" propertyValue="/default/xpath" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
+          <targetXpath propertyValue="//p:setCustomerRequest/p:noOfSeats/text()" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400017074000F687474703A2F2F417869732E636F6D78"/>
+          <inlineRegistryKey prettyName="InlineKey" keyName="key" keyValue="/default/sequence" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400196F72672E77736F322E636172626F6E2E6D6564696174797065737200136A6176612E7574696C2E41727261794C6973747881D21D99C7619D03000149000473697A6578700000000177040000000A74001D6170706C69636174696F6E2F766E642E77736F322E73657175656E63657878"/>
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.13/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.15/@inputConnector"/>
+          </outputConnector>
+        </children>
+        <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=", ">
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.14/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.16/@inputConnector"/>
+          </outputConnector>
+          <properties propertyName="text" propertyValue="** User Request to be sent ........ **">
+            <propertyExpression prettyName="property expression" propertyName="expression" propertyValue="/default/expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
+          </properties>
           <properties propertyName="CustomerID" propertyValueType="EXPRESSION">
             <propertyExpression propertyValue="$ctx:CustomerID" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
           </properties>
@@ -145,60 +184,6 @@
           <properties propertyName="NoOfSeats" propertyValueType="EXPRESSION">
             <propertyExpression propertyValue="$ctx:NoOfSeats" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
           </properties>
-        </children>
-        <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=",">
-          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.9/@outputConnector/@outgoingLink"/>
-          <outputConnector>
-            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.11/@inputConnector"/>
-          </outputConnector>
-          <properties propertyName="MessageFlow" propertyValue="======================= Before Sending User Request to RequestService : =======================">
-            <propertyExpression prettyName="property expression" propertyName="expression" propertyValue="/default/expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
-          </properties>
-        </children>
-        <children xsi:type="esb:EnrichMediator" cloneSource="true" sourceType="inline" sourceXML="&lt;p:setCustomerRequest xmlns:p=&quot;http://Axis.com&quot;>&#xA;                &lt;xs:customerID xmlns:xs=&quot;http://Axis.com&quot;>x&lt;/xs:customerID>&#xA;                &lt;xs:requestID xmlns:xs=&quot;http://Axis.com&quot;>y&lt;/xs:requestID>&#xA;                &lt;xs:movieName xmlns:xs=&quot;http://Axis.com&quot;>z&lt;/xs:movieName>&#xA;                &lt;xs:noOfSeats xmlns:xs=&quot;http://Axis.com&quot;>0&lt;/xs:noOfSeats>&#xA;            &lt;/p:setCustomerRequest>" targetType="body">
-          <sourceXpath prettyName="Source XPath" propertyName="xpath" propertyValue="/default/xpath" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
-          <targetXpath prettyName="Target XPath" propertyName="xpath" propertyValue="/default/xpath" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
-          <inlineRegistryKey prettyName="InlineKey" keyName="key" keyValue="/default/sequence" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400196F72672E77736F322E636172626F6E2E6D6564696174797065737200136A6176612E7574696C2E41727261794C6973747881D21D99C7619D03000149000473697A6578700000000177040000000A74001D6170706C69636174696F6E2F766E642E77736F322E73657175656E63657878"/>
-          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.10/@outputConnector/@outgoingLink"/>
-          <outputConnector>
-            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.12/@inputConnector"/>
-          </outputConnector>
-        </children>
-        <children xsi:type="esb:EnrichMediator" cloneSource="true" sourceType="property" sourceProperty="CustomerID">
-          <sourceXpath prettyName="Source XPath" propertyName="xpath" propertyValue="/default/xpath" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
-          <targetXpath propertyValue="//p:setCustomerRequest/p:customerID/text()" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400017074000F687474703A2F2F417869732E636F6D78"/>
-          <inlineRegistryKey prettyName="InlineKey" keyName="key" keyValue="/default/sequence" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400196F72672E77736F322E636172626F6E2E6D6564696174797065737200136A6176612E7574696C2E41727261794C6973747881D21D99C7619D03000149000473697A6578700000000177040000000A74001D6170706C69636174696F6E2F766E642E77736F322E73657175656E63657878"/>
-          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.11/@outputConnector/@outgoingLink"/>
-          <outputConnector>
-            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.13/@inputConnector"/>
-          </outputConnector>
-        </children>
-        <children xsi:type="esb:EnrichMediator" cloneSource="true" sourceType="property" sourceProperty="RequestID">
-          <sourceXpath prettyName="Source XPath" propertyName="xpath" propertyValue="/default/xpath" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
-          <targetXpath propertyValue="//p:setCustomerRequest/p:requestID/text()" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400017074000F687474703A2F2F417869732E636F6D78"/>
-          <inlineRegistryKey prettyName="InlineKey" keyName="key" keyValue="/default/sequence" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400196F72672E77736F322E636172626F6E2E6D6564696174797065737200136A6176612E7574696C2E41727261794C6973747881D21D99C7619D03000149000473697A6578700000000177040000000A74001D6170706C69636174696F6E2F766E642E77736F322E73657175656E63657878"/>
-          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.12/@outputConnector/@outgoingLink"/>
-          <outputConnector>
-            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.14/@inputConnector"/>
-          </outputConnector>
-        </children>
-        <children xsi:type="esb:EnrichMediator" cloneSource="true" sourceType="property" sourceProperty="MovieName">
-          <sourceXpath prettyName="Source XPath" propertyName="xpath" propertyValue="/default/xpath" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
-          <targetXpath propertyValue="//p:setCustomerRequest/p:movieName/text()" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400017074000F687474703A2F2F417869732E636F6D78"/>
-          <inlineRegistryKey prettyName="InlineKey" keyName="key" keyValue="/default/sequence" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400196F72672E77736F322E636172626F6E2E6D6564696174797065737200136A6176612E7574696C2E41727261794C6973747881D21D99C7619D03000149000473697A6578700000000177040000000A74001D6170706C69636174696F6E2F766E642E77736F322E73657175656E63657878"/>
-          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.13/@outputConnector/@outgoingLink"/>
-          <outputConnector>
-            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.15/@inputConnector"/>
-          </outputConnector>
-        </children>
-        <children xsi:type="esb:EnrichMediator" cloneSource="true" sourceType="property" sourceProperty="NoOfSeats">
-          <sourceXpath prettyName="Source XPath" propertyName="xpath" propertyValue="/default/xpath" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
-          <targetXpath propertyValue="//p:setCustomerRequest/p:noOfSeats/text()" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400017074000F687474703A2F2F417869732E636F6D78"/>
-          <inlineRegistryKey prettyName="InlineKey" keyName="key" keyValue="/default/sequence" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400196F72672E77736F322E636172626F6E2E6D6564696174797065737200136A6176612E7574696C2E41727261794C6973747881D21D99C7619D03000149000473697A6578700000000177040000000A74001D6170706C69636174696F6E2F766E642E77736F322E73657175656E63657878"/>
-          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.14/@outputConnector/@outgoingLink"/>
-          <outputConnector>
-            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.16/@inputConnector"/>
-          </outputConnector>
         </children>
         <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=",">
           <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.15/@outputConnector/@outgoingLink"/>
