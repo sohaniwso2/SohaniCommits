@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api xmlns="http://ws.apache.org/ns/synapse" name="UserAPI" context="/users">
+    <resource methods="GET" uri-template="/{UName}/{password}" inSequence="UserGetInSequence" outSequence="UserGetOutSequence">
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/{UName}/{password}" inSequence="UserAddInSequence">
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/xml/" inSequence="MakeRequest">
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

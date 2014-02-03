@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="MakeRequest">
+    <log level="full">
+        <property name="text" value="** User Ticket Requesting Process **"/>
+    </log>
+    <property name="messageType" value="text/xml" scope="axis2" type="STRING"/>
+    <header name="To" scope="default" action="remove"/>
+    <property name="RESPONSE" value="true" scope="default" type="STRING"/>
+    <property name="CustomerID" expression="//jsonObject/request/title/customerID/text()" scope="default" type="STRING"/>
+    <property name="RequestID" expression="//jsonObject/request/title/requestID/text()" scope="default" type="STRING"/>
+    <property name="MovieName" expression="//jsonObject/request/title/movieName/text()" scope="default" type="STRING"/>
+    <property name="NoOfSeats" expression="//jsonObject/request/title/noOfSeats/text()" scope="default" type="STRING"/>
+    <iterate xmlns:m="http://schemas.xmlsoap.org/soap/envelope/" continueParent="true" id="iter1" expression="//jsonObject/request/title">
+        <target>
+            <sequence>
+                <property name="CustomerID" expression="//customerID/text()" scope="default" type="STRING"/>
+                <property name="RequestID" expression="//requestID/text()" scope="default" type="STRING"/>
+                <property name="MovieName" expression="//movieName/text()" scope="default" type="STRING"/>
+                <property name="NoOfSeats" expression="//noOfSeats/text()" scope="default" type="STRING"/>
+                <log level="custom">
+                    <property name="CustomerID" expression="$ctx:CustomerID"/>
+                    <property name="RequestID" expression="$ctx:RequestID"/>
+                    <property name="MovieName" expression="$ctx:MovieName"/>
+                    <property name="NoOfSeats" expression="$ctx:NoOfSeats"/>
+                </log>
+            </sequence>
+        </target>
+    </iterate>
+    <log level="custom">
+        <property name="CustomerID" expression="$ctx:CustomerID"/>
+        <property name="RequestID" expression="$ctx:RequestID"/>
+        <property name="MovieName" expression="$ctx:MovieName"/>
+        <property name="NoOfSeats" expression="$ctx:NoOfSeats"/>
+    </log>
+    <log level="custom" separator=",">
+        <property name="MessageFlow" value="======================= Before Sending User Request to RequestService : ======================="/>
+    </log>
+    <enrich>
+        <source type="inline" clone="true">
+            <p:setCustomerRequest xmlns:p="http://Axis.com">
+                <xs:customerID xmlns:xs="http://Axis.com">x</xs:customerID>
+                <xs:requestID xmlns:xs="http://Axis.com">y</xs:requestID>
+                <xs:movieName xmlns:xs="http://Axis.com">z</xs:movieName>
+                <xs:noOfSeats xmlns:xs="http://Axis.com">0</xs:noOfSeats>
+            </p:setCustomerRequest>
+        </source>
+        <target type="body"/>
+    </enrich>
+    <enrich>
+        <source type="property" clone="true" property="CustomerID"/>
+        <target xmlns:p="http://Axis.com" xpath="//p:setCustomerRequest/p:customerID/text()"/>
+    </enrich>
+    <enrich>
+        <source type="property" clone="true" property="RequestID"/>
+        <target xmlns:p="http://Axis.com" xpath="//p:setCustomerRequest/p:requestID/text()"/>
+    </enrich>
+    <enrich>
+        <source type="property" clone="true" property="MovieName"/>
+        <target xmlns:p="http://Axis.com" xpath="//p:setCustomerRequest/p:movieName/text()"/>
+    </enrich>
+    <enrich>
+        <source type="property" clone="true" property="NoOfSeats"/>
+        <target xmlns:p="http://Axis.com" xpath="//p:setCustomerRequest/p:noOfSeats/text()"/>
+    </enrich>
+    <log level="custom" separator=",">
+        <property name="MessageFlow" value="======================= Sending Request To RequestService======================="/>
+    </log>
+    <send>
+        <endpoint key="SendRequest"/>
+    </send>
+</sequence>

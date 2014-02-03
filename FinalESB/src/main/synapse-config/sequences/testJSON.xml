@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="testJSON">
+    <log level="full">
+        <property name="text" value="** User Login Process **"/>
+    </log>
+    <property name="messageType" value="application/json" scope="axis2" type="STRING"/>
+    <header name="To" scope="default" action="remove"/>
+    <property name="RESPONSE" value="true" scope="default" type="STRING"/>
+    <property xmlns:ns="http://org.apache.synapse/xsd" name="userid" expression="substring-after(get-property('To'),'/users/')" scope="default" type="STRING"/>
+    <log level="custom" separator=",">
+        <property name="UUUUUUUUUUUUUUUUUUUUUUUU: " expression="$ctx:userid"/>
+    </log>
+    <send/>
+</sequence>

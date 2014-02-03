@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/developerstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_Kx2igItvEeOsZKUOulBG0A" type="Esb" name="api_testAPI.esb_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_Kyv6YItvEeOsZKUOulBG0A" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_Kyv6ZYtvEeOsZKUOulBG0A" type="7001">
+      <children xmi:type="notation:Shape" xmi:id="_SXm8gIt7EeOsZKUOulBG0A" type="3668" fontName="Ubuntu">
+        <children xmi:type="notation:BasicCompartment" xmi:id="_SXm8got7EeOsZKUOulBG0A" type="7044">
+          <children xmi:type="notation:Node" xmi:id="_SXp_0It7EeOsZKUOulBG0A" type="3669">
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_SXp_0Yt7EeOsZKUOulBG0A"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_SXp_0ot7EeOsZKUOulBG0A" fontName="Ubuntu"/>
+            <styles xmi:type="notation:LineStyle" xmi:id="_SXp_04t7EeOsZKUOulBG0A"/>
+            <element xmi:type="esb:APIResource" href="api_testAPI.esb#//@server/@children.0/@resources.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SXp_1It7EeOsZKUOulBG0A" width="300" height="400"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_SX53cIt7EeOsZKUOulBG0A" type="3669">
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_SX53cYt7EeOsZKUOulBG0A"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_SX53cot7EeOsZKUOulBG0A" fontName="Ubuntu"/>
+            <styles xmi:type="notation:LineStyle" xmi:id="_SX53c4t7EeOsZKUOulBG0A"/>
+            <element xmi:type="esb:APIResource" href="api_testAPI.esb#//@server/@children.0/@resources.1"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SX53dIt7EeOsZKUOulBG0A" y="425" width="300" height="400"/>
+          </children>
+        </children>
+        <element xmi:type="esb:SynapseAPI" href="api_testAPI.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SXm8gYt7EeOsZKUOulBG0A" width="40000" height="45000"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_Kyv6YYtvEeOsZKUOulBG0A"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Kyv6YotvEeOsZKUOulBG0A" fontName="Ubuntu"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_Kyv6Y4tvEeOsZKUOulBG0A"/>
+    <element xmi:type="esb:EsbServer" href="api_testAPI.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Kyv6ZItvEeOsZKUOulBG0A"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_Kx2igYtvEeOsZKUOulBG0A"/>
+  <element xmi:type="esb:EsbDiagram" href="api_testAPI.esb#/"/>
+</notation:Diagram>

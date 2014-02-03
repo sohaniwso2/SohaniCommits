@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint xmlns="http://ws.apache.org/ns/synapse" name="Check">
+    <address uri="http://192.168.1.2:9764/services/NewUserDSS/" format="soap11"/>
+</endpoint>

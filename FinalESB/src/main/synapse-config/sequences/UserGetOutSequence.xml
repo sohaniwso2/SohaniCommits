@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="UserGetOutSequence">
+    <log level="custom" separator=",">
+        <property name="MessageFlow" value="------------------- Response Received - From : DataService ----------------------------------"/>
+    </log>
+    <log level="full" separator=","/>
+    <property xmlns:ns="http://org.apache.synapse/xsd" xmlns:ns3="http://org.apache.synapse/xsd" xmlns:p="http://trs.userService" name="UID" expression="//p:Users/p:User/p:UID/text()" scope="default" type="STRING"/>
+    <log level="custom" separator=",">
+        <property xmlns:ns="http://org.apache.synapse/xsd" xmlns:ns3="http://org.apache.synapse/xsd" name="UID" expression="$ctx:UID"/>
+    </log>
+    <send/>
+</sequence>

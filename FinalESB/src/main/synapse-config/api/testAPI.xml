@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api xmlns="http://ws.apache.org/ns/synapse" name="testAPI" context="/users">
+    <resource methods="POST" uri-template="/json/" inSequence="testJSON">
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="POST" uri-template="/xml/" inSequence="testXML">
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

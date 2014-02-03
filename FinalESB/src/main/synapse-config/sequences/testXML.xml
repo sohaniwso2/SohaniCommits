@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="testXML">
+    <log level="full">
+        <property name="text" value="** User Login Process **"/>
+    </log>
+    <property name="messageType" value="text/xml" scope="axis2" type="STRING"/>
+    <header name="To" scope="default" action="remove"/>
+    <property name="RESPONSE" value="true" scope="default" type="STRING"/>
+    <property name="TEST" expression="//jsonObject/properties/title/type/text()" scope="default" type="STRING"/>
+    <log/>
+    <iterate xmlns:m="http://schemas.xmlsoap.org/soap/envelope/" continueParent="true" id="iter1" expression="//jsonObject/properties/title">
+        <target>
+            <sequence>
+                <property name="testType" expression="//type/text()" scope="default" type="STRING"/>
+                <log level="custom">
+                    <property name="TYPE" expression="$ctx:testType"/>
+                    <property name="DES" expression="//des/text()"/>
+                </log>
+            </sequence>
+        </target>
+    </iterate>
+    <send/>
+</sequence>

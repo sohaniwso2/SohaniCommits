@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esb:EsbDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:esb="http:///org/wso2/developerstudio/eclipse/gmf/esb">
+  <server type="SEQUENCE">
+    <children xsi:type="esb:Sequences" name="testXML">
+      <outputConnector>
+        <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@inputConnector"/>
+      </outputConnector>
+      <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.7/@OutputConnector/@outgoingLink"/>
+      <mediatorFlow>
+        <children xsi:type="esb:LogMediator" logLevel="FULL" logSeparator=", ">
+          <inputConnector incomingLinks="//@server/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.1/@inputConnector"/>
+          </outputConnector>
+          <properties propertyName="text" propertyValue="** User Login Process **">
+            <propertyExpression prettyName="property expression" propertyName="expression" propertyValue="/default/expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
+          </properties>
+        </children>
+        <children xsi:type="esb:PropertyMediator" propertyName="messageType" propertyScope="axis2" valueLiteral="text/xml">
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.2/@inputConnector"/>
+          </outputConnector>
+          <valueExpression prettyName="Property Expression" propertyName="expression" propertyValue="/default/expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
+        </children>
+        <children xsi:type="esb:HeaderMediator" headerAction="remove">
+          <headerName prettyName="Header Name" propertyName="name" propertyValue="To" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
+          <valueExpression prettyName="Expression" propertyName="expression" propertyValue="/default/expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.3/@inputConnector"/>
+          </outputConnector>
+        </children>
+        <children xsi:type="esb:PropertyMediator" propertyName="RESPONSE" valueLiteral="true">
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.2/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.4/@inputConnector"/>
+          </outputConnector>
+          <valueExpression prettyName="Property Expression" propertyName="expression" propertyValue="/default/expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
+        </children>
+        <children xsi:type="esb:PropertyMediator" propertyName="TEST" valueType="EXPRESSION">
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.3/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.5/@inputConnector"/>
+          </outputConnector>
+          <valueExpression propertyValue="//jsonObject/properties/title/type/text()" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
+        </children>
+        <children xsi:type="esb:LogMediator" logSeparator=", ">
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.4/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.6/@inputConnector"/>
+          </outputConnector>
+        </children>
+        <children xsi:type="esb:IterateMediator" iterateID="iter1" continueParent="true">
+          <iterateExpression propertyValue="//jsonObject/properties/title" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400016D740029687474703A2F2F736368656D61732E786D6C736F61702E6F72672F736F61702F656E76656C6F70652F78"/>
+          <attachPath propertyValue="." namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400016D740029687474703A2F2F736368656D61732E786D6C736F61702E6F72672F736F61702F656E76656C6F70652F78"/>
+          <target>
+            <sequenceKey prettyName="Sequence Key" keyName="sequence" keyValue="/default/sequence" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
+            <endpointKey prettyName="Endpoint Key" keyName="endpoint" keyValue="/default/endpoint" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
+          </target>
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.5/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.7/@InputConnector"/>
+          </outputConnector>
+          <targetOutputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.6/@mediatorFlow/@children.0/@inputConnector"/>
+          </targetOutputConnector>
+          <mediatorFlow>
+            <children xsi:type="esb:PropertyMediator" propertyName="testType" valueType="EXPRESSION">
+              <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.6/@targetOutputConnector/@outgoingLink"/>
+              <outputConnector>
+                <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.6/@mediatorFlow/@children.1/@inputConnector"/>
+              </outputConnector>
+              <valueExpression propertyValue="//type/text()" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400016D740029687474703A2F2F736368656D61732E786D6C736F61702E6F72672F736F61702F656E76656C6F70652F78"/>
+            </children>
+            <children xsi:type="esb:LogMediator" logLevel="CUSTOM" logSeparator=", ">
+              <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.6/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+              <outputConnector/>
+              <properties propertyName="TYPE" propertyValueType="EXPRESSION">
+                <propertyExpression propertyValue="$ctx:testType" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400016D740029687474703A2F2F736368656D61732E786D6C736F61702E6F72672F736F61702F656E76656C6F70652F78"/>
+              </properties>
+              <properties propertyName="DES" propertyValueType="EXPRESSION">
+                <propertyExpression propertyValue="//des/text()" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C770800000010000000017400016D740029687474703A2F2F736368656D61732E786D6C736F61702E6F72672F736F61702F656E76656C6F70652F78"/>
+              </properties>
+            </children>
+          </mediatorFlow>
+          <sequenceKey prettyName="Sequence Reference" keyName="key" keyValue="/default/key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
+        </children>
+        <children xsi:type="esb:SendMediator">
+          <InputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.6/@outputConnector/@outgoingLink"/>
+          <OutputConnector>
+            <outgoingLink target="//@server/@children.0/@inputConnector"/>
+          </OutputConnector>
+          <StaticReceivingSequence prettyName="Static" keyName="receive" keyValue="/default/sequence" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
+          <DynamicReceivingSequence prettyName="Dynamic" propertyName="receive" propertyValue="/default/xpath" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
+          <endpointOutputConnector/>
+          <mediatorFlow/>
+        </children>
+      </mediatorFlow>
+      <onError prettyName="OnError sequence Key" keyName="OnError sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F4000000000000C7708000000100000000078"/>
+    </children>
+  </server>
+</esb:EsbDiagram>

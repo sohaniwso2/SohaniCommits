@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="UserGetInSequence">
+    <log level="full">
+        <property name="text" value="** User Login Process **"/>
+    </log>
+    <property xmlns:ns="http://org.apache.synapse/xsd" name="UName" expression="get-property('uri.var.UName')" scope="default" type="STRING"/>
+    <property xmlns:ns="http://org.apache.synapse/xsd" name="password" expression="get-property('uri.var.password')" scope="default" type="STRING"/>
+    <log level="custom" separator=",">
+        <property name="UName" expression="$ctx:UName"/>
+    </log>
+    <log level="custom" separator=",">
+        <property name="MessageFlow" value="======================= Before Sending message to Data Service : LoginDSS ======================="/>
+    </log>
+    <payloadFactory media-type="xml">
+        <format>
+            <p:GetUsers xmlns:p="http://trs.userService">
+                <p:UName>$1</p:UName>
+                <p:password>$2</p:password>
+            </p:GetUsers>
+        </format>
+        <args>
+            <arg xmlns:ns="http://org.apache.synapse/xsd" xmlns:ns3="http://org.apache.synapse/xsd" evaluator="xml" expression="get-property('uri.var.UName')"/>
+            <arg xmlns:ns="http://org.apache.synapse/xsd" xmlns:ns3="http://org.apache.synapse/xsd" evaluator="xml" expression="get-property('uri.var.password')"/>
+        </args>
+    </payloadFactory>
+    <log level="custom" separator=",">
+        <property name="MessageFlow" value="======================= Sending Request To Database : LoginDSS ======================="/>
+    </log>
+    <log level="full" separator=","/>
+    <send>
+        <endpoint key="Check"/>
+    </send>
+</sequence>

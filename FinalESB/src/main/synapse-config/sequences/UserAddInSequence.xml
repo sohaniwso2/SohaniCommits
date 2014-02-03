@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="UserAddInSequence">
+    <log level="full">
+        <property name="text" value="** User Registration Process **"/>
+    </log>
+    <property xmlns:ns="http://org.apache.synapse/xsd" name="UName" expression="get-property('uri.var.UName')" scope="default" type="STRING"/>
+    <property xmlns:ns="http://org.apache.synapse/xsd" name="password" expression="get-property('uri.var.password')" scope="default" type="STRING"/>
+    <log level="custom" separator=",">
+        <property name="UName" expression="$ctx:UName"/>
+        <property name="password" expression="$ctx:password"/>
+    </log>
+    <log level="custom" separator=",">
+        <property name="MessageFlow" value="======================= Before Sending message to Data Service : RegistrationDSS ======================="/>
+    </log>
+    <enrich>
+        <source type="inline" clone="true">
+            <p:InsertUsers xmlns:p="http://trs.userService">
+                <xs:UName xmlns:xs="http://trs.userService">a</xs:UName>
+                <xs:password xmlns:xs="http://trs.userService">b</xs:password>
+            </p:InsertUsers>
+        </source>
+        <target type="body"/>
+    </enrich>
+    <enrich>
+        <source type="property" clone="true" property="UName"/>
+        <target xmlns:p="http://trs.userService" xpath="//p:InsertUsers/p:UName/text()"/>
+    </enrich>
+    <enrich>
+        <source type="property" clone="true" property="password"/>
+        <target xmlns:p="http://trs.userService" xpath="//p:InsertUsers/p:password/text()"/>
+    </enrich>
+    <log level="custom" separator=",">
+        <property name="MessageFlow" value="======================= Sending Request To Database : RegistrationDSS ======================="/>
+    </log>
+    <log level="full" separator=","/>
+    <send>
+        <endpoint key="Check"/>
+    </send>
+</sequence>
